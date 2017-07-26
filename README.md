@@ -1,4 +1,4 @@
-# tiny-logger
+# node-tiny-logger
 
 [![Build Status](https://travis-ci.org/kksharma1618/tiny-logger.svg?branch=master)](https://travis-ci.org/kksharma1618/tiny-logger)
 
