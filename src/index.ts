@@ -1,5 +1,5 @@
 import * as assert from 'assert'
-import {format} from 'util'
+import { format } from 'util'
 
 export interface LoggerOptions {
     // level
@@ -21,15 +21,21 @@ export default class Logger {
     private options: LoggerOptions
 
     constructor(opts?: LoggerOptions) {
-        this.options = Object.assign({
+        this.options = {
             level: 4
-        }, opts || {}) as LoggerOptions
+        }
+        if (opts) {
+            if (opts.level) {
+                this.options.level = opts.level
+            }
+            this.options.handleLogEntry = opts.handleLogEntry
+        }
 
         assert.ok(typeof this.options.level === 'number', "level")
         assert.ok(this.options.level >= 1 && this.options.level <= 6, "level")
 
         if (!this.options.handleLogEntry) {
-            this.options.stream = this.options.stream || process.stdout
+            this.options.stream = opts && opts.stream ? opts.stream : process.stdout
         }
     }
     public fatal(...args: any[]) {
