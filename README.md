@@ -1,17 +1,17 @@
 # tiny-logger
 
-[![Build Status](https://travis-ci.org/kksharma1618/tiny-logger.svg?branch=master)](https://travis-ci.org/kksharma1618/lambda-restify)
+[![Build Status](https://travis-ci.org/kksharma1618/tiny-logger.svg?branch=master)](https://travis-ci.org/kksharma1618/tiny-logger)
 
 A very tiny logger for nodejs
 
 ## Installation
 ```
-npm install --save tiny-logger
+npm install --save node-tiny-logger
 ```
 
 ## Usage
 ``` javascript
-import Logger from 'tiny-logger'
+import Logger from 'node-tiny-logger'
 const logger = new Logger({
     level: Logger.INFO
 })
