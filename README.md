@@ -7,7 +7,7 @@ npm install --save tiny-logger
 ```
 
 ## Usage
-```
+``` javascript
 import Logger from 'tiny-logger'
 const logger = new Logger({
     level: Logger.INFO
@@ -16,7 +16,7 @@ logger.warn('some warning', {someObject: 1}, ...)
 ```
 
 ## Logger Options
-```
+``` javascript
 {
     level: Logger.FATAL | Logger.ERROR | Logger.WARN  | Logger.INFO  | Logger.DEBUG | Logger.TRACE,
     handleLogEntry?: (levelStr: string, argsPassedToLog),
@@ -30,12 +30,14 @@ All logs below this level will be ignored. Eg: If you specify Logger.WARN, then 
 **handleLogEntry(levelStr: string, argsPassedToLog):**<br />
 Optional log entry handler. If you provide it then logs will trigger options.handleLogEntry function instead of writing to options.stream (or process.stdout).
 Eg:
+``` javascript
 const logger = new Logger({
     handleLogEntry: function(levelStr, args) {
         console.log(levelStr, args)
     }
 })
 logger.error("a", 1, 2); // => ERROR [ 'a', 1, 2 ]
+```
 
 **stream:**<br />
 If provided (and handleLogEntry is not provided) then it will be used to write log. Defaults to process.stdout
